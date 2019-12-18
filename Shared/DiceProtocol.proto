@@ -1,0 +1,76 @@
+// [START declaration]
+syntax = "proto3";
+package dice;
+// [END declaration]
+
+// [START csharp_declaration]
+option csharp_namespace = "Dice.Shared.Protocol";
+// [END csharp_declaration]
+
+
+// [START messages]
+
+enum PacketCode {
+	INVALID = 0;
+	ENTER_REQ = 1;
+	ENTER_RES = 2;
+	ENTER_EVT = 3;
+	LEAVE_EVT = 4;
+	MOVE_REQ = 5;
+	MOVE_EVT = 6;
+	STOP_REQ = 7;
+	STOP_EVT = 8;
+}
+
+message PbPosition {
+	float x = 1;
+	float y = 2;
+}
+
+message EnterReq {
+	string token = 1;
+	string deviceId = 2;
+	string name = 3;
+}
+
+message PbPlayer {
+	int64 id = 1;
+	string name = 2;
+	PbPosition pos = 3;
+	PbPosition vel = 4;
+}
+
+message EnterRes {
+	int32 result = 1;
+	PbPlayer myPlayer = 2;
+}
+
+message EnterEvt {
+	repeated PbPlayer players = 1;
+}
+
+message LeaveEvt {
+	int64 id = 1;
+}
+
+message MoveReq {
+	repeated PbPosition trail = 1;
+}
+
+message MoveEvt {
+	int64 id = 1;
+	repeated PbPosition trail = 2;
+}
+
+message StopReq {
+	PbPosition pos = 1;
+}
+
+message StopEvt {
+	int64 id = 1;
+	PbPosition pos = 2;
+}
+
+
+
+// [END messages]
