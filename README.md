@@ -1,5 +1,6 @@
 # Dice
 ASP .Net Core Web Api, C# Socket Server and Unity Client Example
+![Alt text](Doc/DicePlay.png?raw=true "Play")
 
 ## Dependencies
  * Lidgren
