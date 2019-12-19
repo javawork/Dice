@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <div class="mermaid">
+sequenceDiagram
+  participant Client1
+  participant Client2
+  participant Server
+  Client1->>Server: MoveRequest
+  activate Server
+  Server->>Client1: MoveResponse
+  Server->>Client2: MoveEvent
+  deactivate Server
+  </div>
+  <script src="mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad:true});</script>
+</body>
+</html>

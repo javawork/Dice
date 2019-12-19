@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <div class="mermaid">
+sequenceDiagram
+  participant Client
+  participant Server
+  participant Api
+  Client->>Api: GetTokenRequest
+  activate Api
+  Api->>Client: Token and Server Address
+  deactivate Api
+  Client->>Server: EnterRequest
+  activate Server
+  Server->>Api: ValidateToken
+  activate Api
+  Api->>Server: Ok
+  deactivate Api
+  Server->>Client: EnterResponse
+  deactivate Server
+  </div>
+  <script src="mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad:true});</script>
+</body>
+</html>
