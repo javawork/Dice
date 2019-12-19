@@ -4,6 +4,7 @@ ASP .Net Core Web Api, C# Socket Server and Unity Client Example
 
 ## Dependencies
  * Lidgren
+ * Google protobuf
  * Unity
  * Json.NET
 
