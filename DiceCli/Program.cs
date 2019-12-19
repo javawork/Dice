@@ -54,7 +54,7 @@ namespace DiceCli
             if (!_isCLI)
             {
                 Console.WriteLine("");
-                Console.WriteLine("Type: 'Help' for a list of commands");
+                Console.WriteLine("Type: 'help' for a list of commands");
                 Console.WriteLine("");
                 Console.Write(">");
             }

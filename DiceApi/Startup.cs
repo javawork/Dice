@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
+using DiceApi.Data;
 
 namespace DiceApi
 {
@@ -26,6 +27,10 @@ namespace DiceApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var gameServerAddress = Configuration.GetSection("GameServerAddress").Value;
+
+            services.AddSingleton<ApiConfig>(new ApiConfig(gameServerAddress));
+
             // also the following given it's a Web API project
             services.AddControllers().AddJsonOptions(options => {
                 options.JsonSerializerOptions.DictionaryKeyPolicy = null;
